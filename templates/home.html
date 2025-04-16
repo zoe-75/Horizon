@@ -7,151 +7,201 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'imgs/favicon.png' %}">
     <title>Info Hive</title>
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> -->
+
     <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel=" stylesheet" href="{% static 'css/slick.css' %}">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'cs/style.css' %}">
 </head>
 
+  
 <body>
     <div class="site-wrapper">
         <div class="main-overlay"></div>
+        <main class="container">
+            <div class=" main  container d-flex flex-wrap" style="font-family: Nunito;">
+              <ul class="nav me-auto">
+                <li><a href="#" class="nav-link px-2" >Home</a></li>
+                <li><a href="#" class="nav-link px-2">About</a></li>
+              </ul>
+              <ul class="nav">
+                <li ><a href="#" class="nav-link px-2">Login</a></li>
+                <li><span><a href="#" class=" nav-link px-2">Join</a></span></li>
+                <li><a href="#" class="nav-link px-2">Dashboard</a></li>
+              </ul>
+            </div>
+        </main>
+
+        
         <header class="header-default">
-            <nav class="navbar navbar">
-                <div class="container">
-                    <!-- logo  -->
-                    <a href="index.html" class="navbar-brand">
-                        <img src="{% static 'imgs/Preview__6_-removebg-preview.png' %}" alt="" style="width: 140px;">
-                    </a>
-                    <div class="collapse navbar-collapse">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown ">
-                                <a href="index.html" class="nav-link">HOME</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">AI</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">CYBERSECURITY</a>
+            <div class="container-sm">
+                <header class=" best mb-2">
+                    <nav class="navbar navbar-expand-lg ">
+                        <div class="container-sm">
+                            <a class="logo" href="#"><img src="{% static 'imgs/logo.png' %}"
+                                style="width: 90%;"></a>
+                                <div class="collapse  navbar-collapse justify-content-center" id="navbarContent" >
+
+                                    <ul class="navbar-nav mb-2 mb-lg-0">
+
+                                        <!-- Development -->
+                                        <li class="nav-item dropdown">
+                                          <a class="nav-link dropdown-toggle" href="#" id="devDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Development
+                                          </a>
+                                          <ul class="dropdown-menu" aria-labelledby="devDropdown">
+                                            <li><a class="dropdown-item" href="#">Software Engineering</a></li>
+                                            <li><a class="dropdown-item" href="#">Tutorials</a></li>
+                                            <li><a class="dropdown-item" href="#">Dev Tools</a></li>
+                                            <li><a class="dropdown-item" href="#">Best Practices</a></li>
+                                          </ul>
+                                        </li>
                                 
-
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">BUSINESS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">TECHNOLOGIES</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">GADGETS</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">ENTERTAINMENT</a>
-                            </li>
-
-                            <li class="nav-item dropdown active">
-                                <a href="index.html" class="nav-link">More...</a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="#" class="dropdown-item">Programming</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Arts and Culture</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Stock Market</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Sign in</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="dropdown-item">Dashboard</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- right side of header  -->
-                    <div class="header-right">
-                        <div class="header-buttons">
-                            <button class="search icon-button">
-                                <i class="icon-magnifier"></i>
-                            </button>
-                            <button class="burger-menu icon-button">
-                                <span class="icon-menu"></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-
-        </header>
-
-
-  
-
+                                        <!-- Infrastructure & Security -->
+                                        <li class="nav-item dropdown">
+                                          <a class="nav-link dropdown-toggle" href="#" id="infraDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Infrastructure & Security
+                                          </a>
+                                          <ul class="dropdown-menu" aria-labelledby="infraDropdown">
+                                            <li><a class="dropdown-item" href="#">IT & Cloud</a></li>
+                                            <li><a class="dropdown-item" href="#">Cybersecurity</a></li>
+                                            <li><a class="dropdown-item" href="#">DevOps</a></li>
+                                            <li><a class="dropdown-item" href="#">Networking</a></li>
+                                          </ul>
+                                        </li>
+                                
+                                        <!-- Tech Trends -->
+                                        <li class="nav-item dropdown">
+                                          <a class="nav-link dropdown-toggle" href="#" id="trendsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Tech Trends
+                                          </a>
+                                          <ul class="dropdown-menu" aria-labelledby="trendsDropdown">
+                                            <li><a class="dropdown-item" href="#">AI & Data</a></li>
+                                            <li><a class="dropdown-item" href="#">Emerging Tech</a></li>
+                                            <li><a class="dropdown-item" href="#">Tech Headlines</a></li>
+                                            <li><a class="dropdown-item" href="#">Trending</a></li>
+                                            <li><a class="dropdown-item" href="#">Career & Culture</a></li>
+                                          </ul>
+                                        </li>
+    
+                                       
+                                      </ul>
+                                </div>
+                                 <div class="header-right">
+                                            <div class="header-buttons">
+                                                <button class="search icon-button">
+                                                    <i class="icon-magnifier"></i>
+                                                </button>
+                                                <button class="burger-menu icon-button">
+                                                    <span class="icon-menu"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                  
+                          </div>
+                      </nav>
+                      
+                </header>      
+            </div>
+        </header>    
         <!-- section starts  -->
-
-
-
 
         <section class="py-5 homepage-banner pt-4 pb-0 card-grid">
             <div class="container">
                 <div class="row g-8">
-                    <div class="col-lg-20">
-                        <div class="row">
-                            <div class="col-lg-20">
-                                <div class="home-blog">
-                                    <h2><i class="bi bi-hourglass-top me-2"></i>Latest news
-                                    </h2>
-                                    <div class="cards">
-                                        <img src="{% static 'imgs/r.jpg' %}" alt="">
-                                        <div class="h-blog-text">
-
-                                            <h2>The Future Of Tech :<br> How Innovation is shaping tommorow's Economy
-                                            </h2>
-                                            <p class="lorem">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
-                                                debitis asperiores, tenetur harum quisquam iusto minima magni quas
-                                                ducimus! Accusantium.
-                                            </p>
-                                            <div class="author">
-                                                <img src="{% static 'imgs/author.jpg' %}" alt="">
-                                                <p>sarah Eddirisi</p>
-                                                <div class="tags">
-                                                    <span>2m ago</span>
-                                                </div>
-                                            </div>
+                    <div class="col-lg-6 home-left-blogs">
+                        <div class="home-blog">
+                            <div class="card1">
+                                <img src="{% static 'imgs/blog-1.jpg' %}" alt="">
+                                <div class="h-blog-text">
+                                    
+                                    <h2 data-aos="zoom-in"> AI- Powered Financial Planning : <br>How Algorithms
+                                        Revolutionzing</h2>
+                                        <p class="lorem">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
+                                            debitis asperiores, tenetur harum quisquam iusto minima magni quas
+                                            ducimus! Accusantium.
+                                        </p>
+                                    <div class="author">
+                                        <img src="{% static 'imgs/3.png' %}" alt="">
+                                        <p>sarah Eddirisi</p>
+                                        <div class="tags">
+                                            <span>2m ago</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
-
+                    <div class="col-lg-6">
+                        <div class="row home-rights-blogs">
+                            <div class="col-lg-15">
+                                <div class="home-blog">
+                                    <div class="cards">
+                                        <img src="{% static 'imgs/e.jpg' %}" alt="">
+                                        <div class="h-blog-text">
+                                            <div class="tags">         
+                                                <span>2m ago</span>
+                                            </div>
+                                            <h2>The Future Of Tech :<br> How Innovation is shaping tommorow's Gadgets</h2>
+                                            <p class="lorem">
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident
+                                                ducimus! Accusantium.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="home-blog">
+                                    <div class="card">
+                                        <img src="{% static 'imgs/g1.jpg' %}" alt="">
+                                        <div class="h-blog-text">
+                                            <div class="tags">
+                                                <span>2m ago</span>
+                                            </div>
+                                            <h2> How Innovation is shaping tommorow's Gadgets</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="col-lg-6">
+                                <div class="home-blog">
+                                    <div class="card">
+                                        <img src="{% static 'imgs/vic.jpg' %}" alt="">
+                                        <div class="h-blog-text">
+                                            <div class="tags">
+                                                <span>2m ago</span>
+                                            </div>
+                                            <h2> How Innovation is shaping tommorow's Gadgets</h2>
+                                        </div>
+                                    </div>
+    
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+    
+    
                 </div>
             </div>
         </section>
-
 
 
 
@@ -168,10 +218,6 @@
                                 <p>Latest breaking news, pictures, videos, and special reports</p>
                             </h2>
                         </div>
-                        <!-- <div class="section-header">
-                            <h3 class="section-title">Editor's Pick</h3>
-                        </div> -->
-
                         <div class="padding-30 rounded bordered">
                             <div class="row gy-5">
                                 <div class="col-sm-6">
@@ -804,7 +850,7 @@
                         <div class="sidebar">
                             <div class="widget rounded">
                                 <div class="widget-about text-center">
-                                    <img src="{% static 'imgs/Preview__6_-removebg-preview.png' %}" alt="" style="width: 100px;"
+                                    <img src="{% static 'imgs/logoss.png' %}" alt="" style="width: 100px;"
                                          class="logo mb-2">
                                     <p class="mb-4" style="text-align: justify;">This is Lorem ipsum dolor sit amet
                                         consectetur adipisicing elit.
@@ -1504,7 +1550,7 @@
                                 <div class="thumb rounded">
                                     <a href="#">
                                         <div class="inner">
-                                            <img src="{% static ' images/posts/tren-sm-4.jpg' %}" alt="">
+                                            <img src="{% static 'images/posts/tren-sm-4.jpg' %}" alt="">
                                         </div>
                                     </a>
                                 </div>
@@ -1640,7 +1686,7 @@
                         <hr class="border-white">
                         <div class="col-lg-4">
                             <span class="copyright">
-                                <img src="{% static 'imgs/Preview__6_-removebg-preview.png' %} " style="width: 120px;" alt=""><br>
+                                <img src="{% static 'imgs/logo.png' %} " style="width: 120px;" alt=""><br>
                                 <a href="">&copy; 2024 Core Developers All Rights Reserved</a>
                             </span>
                         </div>
@@ -1697,16 +1743,16 @@
         <button class="btn-close" aria-label="Close" type="button"></button>
 
         <div class="logo">
-            <img src="{% static 'imgs/Preview__6_-removebg-preview.png' %}" alt="">
+            <img src="{% static 'imgs/logo.png' %}" alt="">
         </div>
         <nav>
             <ul class="vertical-menu">
                 <li class="active">
                     <a href="index.html">Home</a>
                     <ul class="submenu">
-                        <li><a href="#">Fashion</a></li>
-                        <li><a href="#">Movies</a></li>
-                        <li><a href="#">Electronic</a></li>
+                        <li><a href="#">World</a></li>
+                        <li><a href="#">Technology</a></li>
+                        <li><a href="#">Design</a></li>
                         <li><a href="#">Cricket</a></li>
                         <li><a href="#">Technology</a></li>
                     </ul>
@@ -1745,7 +1791,7 @@
 
         <div class="search-content">
             <div class="text-center">
-                <h3 class="mb-4 mt-0" style="color: #303030;">Press ESC to close</h3>
+                <h3 class="mb-4 mt-0" style="color: #ffffff;">Press ESC to close</h3>
             </div>
 
             <form action="" class="d-flex search-form">
@@ -1774,8 +1820,7 @@
     <script src="{% static 'js/jquery.sticky-sidebar.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
 
-    <!-- Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Bundle with Popper -->   
 
     <!-- AOS JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
@@ -1795,6 +1840,9 @@
             mirror: false // Whether elements should animate out when scrolling past them
         });
     </script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

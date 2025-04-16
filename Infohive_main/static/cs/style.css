@@ -11,32 +11,21 @@
 }
 
 
-.rowss{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 4rem;
-    /* border: 1px solid #2e2e2e2d; */
-    padding:1rem;
-    border-radius: 0.5rem;
-}
-
 
 /* ------------------ */
 
 .title h2{
     font-size: 30px;
-    color: #303030;
+    color: #e2e2e2;
     display: inline-block;
     padding: 10px 15px;
     margin: 0;
-    /* background: #ddd; */
 }
 
 p {
-    font-size: 16px;
-    color: #303030;
-    line-height: 1.7;
+    font-size: 14px;
+    color: #e0e0e0;
+    line-height: 1.4;
 }
 
 .title{
@@ -52,41 +41,16 @@ p {
     bottom: 0;
 }
 
-.container{
-    width: 100%;
-}
 
-.container::after {
-    content: "";
-    /* background: #203656; */
-    display: block;
-    left: 0;
-    opacity: 0.8;
-    top: 0;
-    height: 100%;
-    /* position: absolute; */
-    width: 100%;
-}
 
 
 /* -------------------------- */
-
 
 .home-blog{
     width: 100%;
     z-index: 9;
     border-radius: 0.3rem;
     cursor: pointer;
-    margin-top: 20px;
-
-}
-@media (max-width: 767px) {
-    .home-rights-blogs .h-blog-text h2{
-        font-size: 15px;
-    }
-    .lorem{
-       font-size: 15px;
-    }
 }
 .card1{
     overflow: hidden;
@@ -95,7 +59,7 @@ p {
     transition: all 0.4s ease-in-out;
     cursor: pointer;
     width: 100%;
-    border-radius: 1rem;
+    border-radius: .3rem;
     margin-bottom: 20px;
 }
 
@@ -115,7 +79,7 @@ p {
     width: 100%;
     transition: transform 0.4s ease-in-out;
     object-fit: cover;
-    height: 50px;
+    height: 450px;
 }
 .card1:hover img{
     transform: scale(1.1);
@@ -130,7 +94,7 @@ p {
     transition: all 0.4s ease-in-out;
     cursor: pointer;
     width: 100%;
-    border-radius: 0.3rem;
+    border-radius: .3rem;
     margin-bottom: 20px;
 }
 
@@ -164,16 +128,14 @@ p {
     transition: all 0.4s ease-in-out;
     cursor: pointer;
     width: 100%;
-    border-radius: 0.3rem;
+    border-radius: .3rem;
     margin-bottom: 20px;
 }
-
-
 .cards img{
     width: 100%;
     transition: transform 0.4s ease-in-out;
     object-fit: cover;
-    height: 400px;
+    height: 255px;
 }
 .cards:hover img{
     transform: scale(1.1);
@@ -200,15 +162,13 @@ p {
 .card-body {
     position: relative;
     z-index: 2;
-    color: rgb(255, 255, 255); /* Make text visible if background darkens */
+    color: rgb(0, 0, 0); /* Make text visible if background darkens */
 }
 
-.lorem{
-    color: rgba(255, 255, 255, 0.822);
-}
+
 
 .home-blog .h-blog-text h2:hover{
-    color: white;
+    color: #ffffffd7;
     background-size: 100% 2px;
 }
 
@@ -220,10 +180,11 @@ p {
     background-repeat: no-repeat;
     transition: background-size 0.5s ease-in-out;
     display: inline;
+    font-weight: bold;
   }
 
 .home-left-blogs .h-blog-img img{
-    height: 500px;
+    height: 550px;
     object-fit: cover;
     width: 100%;
 }
@@ -231,7 +192,6 @@ p {
 .h-blog-text{
     position: absolute;
     bottom: 20px;
-    /* z-index: 9; */
     padding: 0 20px;
 }
 
@@ -274,12 +234,7 @@ p {
 .h-blog-text h2{
     font-size: 25px;
     color: rgb(255, 255, 255);
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-
+    overflow: hidden; 
 }
 
 .tags span {
@@ -308,25 +263,18 @@ p {
 }
 
 .home-rights-blogs .h-blog-text h2{
-    font-size: 10px;
+    font-size: 17px;
 }
 
-
-/* 
-.titles{
-    margin-bottom: 25px;
-    color: white;
-    text-align: center;
-} */
 
 
 
 
 
 body {
-    color: #000000;
-    background-color: #ffffff;
-    background-image: url(imgs/blizzard.png);
+    color: #ffffff;
+    background-color: #0e121b;
+    background-image: url('../imgs/black-linen.png');
     font-size: 15px;
     line-height: 1.7;
     overflow-x: hidden;
@@ -360,7 +308,7 @@ h3,
 h4,
 h5,
 h6 {
-    color: #303030;
+    color: #E2E8F0;
     line-height: 1.3;
     margin: 20px 0;
 }
@@ -368,14 +316,13 @@ h6 {
 
 
 a {
-    color: #303030;
+    color: #E2E8F0;
     outline: 0;
     text-decoration: none;
-    transition: all 0.3s ease-in-out;
 }
 
 a:hover {
-    color: rgba(218, 165, 32, 0.63);
+    color: rgba(218, 165, 32, 0.829);
 }
 
 a:focus {
@@ -388,7 +335,7 @@ a:focus {
     opacity: 0;
     visibility: hidden;
     filter: blur(2px);
-    background: #000000;
+    background-color: #0e121b;
     position: fixed;
     height: 100vh;
     width: 100%;
@@ -404,10 +351,8 @@ a:focus {
 .header-default {
     position: relative;
     width: 100%;
-}
-
-.header-default .navbar-nav {
-    margin-left: 50px;
+    background-color: #0e121b9a;
+    background-image: url('../imgs/black-linen.png');
 }
 
 .header-default.clone {
@@ -426,40 +371,35 @@ body.down .header-default.clone {
     transform: translateY(0);
 }
 
-.navbar {
-    padding: 1em;
-    padding-top: 1rem;
-    background-color: #ffffffa4;
-    background-image: url(imgs/blizzard.png);
-    align-items: center;
+main ul li .nav-link{
+    color: #fff;
+}
+main{
+    border-bottom: 1px solid #ffffff50;
+}
+main ul li  span .nav-link {
+    color: goldenrod;
+}
+main ul li .nav-link:hover{
+    color: #8da2bb;
+    transition: 0.3s ease-in-out;
 }
 
-
-
-.navbar-nav {
-    font-family:'Nunito';
+.navbar-nav .nav-item .nav-link{
+    color: #ffffff;
     font-size: 15px;
-    font-weight: 700;
+    font-family: Nunito;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-.navbar-nav .nav-link {
-    /* padding: 0.439rem 1rem; */
-    color: #303030;
+.navbar-nav .nav-item .nav-link:hover{
+    color: #a9b3c2;
+    transition: 0.3s ease-in-out;
 }
 
-.navbar-nav .nav-link:hover {
-    color: #222121a8;
-}
-
-.navbar-nav li.active .nav-link {
-    color: #303030;
-}
-
-.navbar-brand {
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-right: 0;
-}
 
 .dropdown-menu {
     position: absolute;
@@ -487,7 +427,7 @@ body.down .header-default.clone {
     width: 0;
     position: absolute;
     top: -8px;
-    left: 8%;
+    left: 60%;
     border-left: 8px solid transparent;
     border-right: 8px solid transparent;
     border-bottom: 10px solid #fff;
@@ -524,7 +464,7 @@ body.down .header-default.clone {
 
 .dropdown-item:hover {
     margin-left: 5px;
-    transition: all 0.4s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 .dropdown-item:focus, .dropdown-item:hover {
@@ -539,16 +479,16 @@ body.down .header-default.clone {
     border-top: 1px solid #ddd;
 }
 
-.dropdown-toggle::after {
+.nav-link .dropdown-toggle::after {
     display: inline-block;
     margin-left: 5px;
     vertical-align: middle;
     font-size: 8px;
     border-top: transparent;
     border-right: transparent;
-    border-bottom: 0;
+    -bottom: 0;
     border-left: transparent;
-    content: "";
+    content: "";
     font-family:'Nunito';
 
 }
@@ -571,11 +511,11 @@ body.down .header-default.clone {
 }
 
 .header-right .social-icons {
-    display: inline-block;
+    display: flex;
 }
 
 .header-right .header-buttons {
-    display: inline-block;
+    display:flex;
     margin-left: 50px;
 }
 
@@ -587,21 +527,15 @@ body.down .header-default.clone {
     margin-left: 0;
 }
 
-@media (min-width: 992px) {
-    .navbar-expand-lg .navbar-nav .nav-link {
-        padding-right: 1.3rem;
-        padding-left: 1.3rem;
-    }
-}
 
 @media (min-width: 1200px) {
-    .container-xl {
+    .container-xl{
         max-width: 1140px;
     }
 }
 
 @media (min-width: 1400px) {
-    .container-xl {
+    .container-xl{
         max-width: 1140px;
     }
 }
@@ -672,7 +606,7 @@ button:focus {
 
 .social-icons a {
     font-size: 16px;
-    color: #070707;
+    color: #fff9f9;
 }
 
 .social-icons a:hover {
@@ -686,7 +620,7 @@ button:focus {
 /* ************ canvas menu *********** */
 
 .canvas-menu {
-    background: #ffffff;
+    background-color: #0e121bce;
     height: 100vh;
     overflow-y: auto;
     overflow-x: hidden;
@@ -695,6 +629,7 @@ button:focus {
     right: 0;
     top: 0;
     width: 300px;
+    backdrop-filter: blur(5px);
     z-index: 6;
     box-shadow: -4px 0px 20px rgba(32, 54, 86, 0.2);
     transform: translateX(350px);
@@ -711,11 +646,12 @@ button:focus {
     height: 1em;
     position: absolute;
     padding: 0.25em 0.25em;
-    color: #000;
+    color: #ffffff;
     border: 0;
     border-radius: 0.25rem;
     opacity: 0.4;
     right: 30px;
+    background-color: #fff;
     top: 20px;
     transition: all 0.3s ease-in-out;
 }
@@ -746,7 +682,7 @@ button:focus {
 }
 
 .canvas-menu .vertical-menu li.openmenu>a {
-    color: #203656;
+    color: #ffffff;
 }
 
 .canvas-menu .vertical-menu li.openmenu .switch {
@@ -761,7 +697,7 @@ button:focus {
 }
 
 .canvas-menu .vertical-menu li a {
-    color: #203656;
+    color: #ffffff;
     font-family: "Poppins", sans-serif;
     font-size: 14px;
     font-weight: 400;
@@ -785,11 +721,11 @@ button:focus {
 }
 
 .canvas-menu .vertical-menu li.active .submenu a {
-    color: #79889e;
+    color: #ffffff;
 }
 
 .canvas-menu .vertical-menu li.active .submenu a:hover {
-    color: #203656;
+    color: #ffffff;
 }
 
 .canvas-menu .submenu {
@@ -814,7 +750,7 @@ button:focus {
     padding: 10px;
     line-height: 1;
     cursor: pointer;
-    color: #000000;
+    color: #ffffff;
     position: absolute;
     top: 0;
     right: 0;
@@ -825,8 +761,8 @@ button:focus {
 /* ************** search pop up ************* */
 
 .search-popup {
-    background: rgba(255, 255, 255, 0.329);
-    background-image: url(imgs/blizzard.png);
+    background-color: #0e121b8e;
+    background-image: url('../imgs/black-linen.png');
     backdrop-filter: blur(6px);
     position: fixed;
     left: 0;
@@ -856,6 +792,7 @@ button:focus {
     right: 30px;
     top: 30px;
     position: absolute;
+    background-color: #fff;
 }
 
 .btn {
@@ -904,7 +841,7 @@ button:focus {
     padding: 8px 24px;
     font-size: 14px;
     line-height: 1.6;
-    color: #303030;
+    color: #ffffff;
     background-color: #fff;
     background-image: none;
     border: 1px solid #ebebeb;
@@ -928,7 +865,7 @@ button:focus {
 }
 
 .bordered {
-    border: 1px solid #2e2e2e2d;
+    border: 1px solid #8b89892d;
 }
 
 .post-tabs {
@@ -1019,7 +956,7 @@ button:focus {
 
 .nav-pills .nav-link {
     background: 0 0;
-    border: 1px solid #2e2e2e2d;
+    border: 1px solid #8f8f8fc2;
     border-radius: 30px;
 }
 
@@ -1367,7 +1304,7 @@ button:focus {
 /* ************** */
 
 .widget {
-    border: 1px solid #2e2e2e2d;
+    border: 1px solid #b1b1b121;
     padding: 35px 30px;
     margin-bottom: 40px;
     /* margin-left: 1rem; */
@@ -1466,7 +1403,7 @@ button:focus {
 .newsletter-headline {
     font-size: 15px;
     font-weight: bold;
-    color: #303030;
+    color: #ffffff;
     display: block;
 }
 
@@ -1474,10 +1411,10 @@ button:focus {
 .newsletter-privacy {
     font-size: 13px;
     display: block;
-    color: #303030;
+    color: #ffffff;
 }
 .let{
-    color: #000;
+    color: #ffffff;
 }
 .btn-default {
     color: #ffffff;
@@ -1559,7 +1496,7 @@ footer {
 }
 
 .footer_links h4{
-    color: #303030;
+    color: #ffffff;
     padding-left: 2rem;
 }
 .border-white{
@@ -1616,15 +1553,15 @@ footer .footer-inner {
 
 
 footer .footer-inner .copyright a{
-    color: #303030;
+    color: #ffffff;
 }
 footer .footer-inner .copyright a:hover{
-    color: #0000006c;
+    color: #bbb6b66c;
 }
 #return-to-top {
-    color: #303030;
+    color: #ffffff;
     font-size: 13px;
-    border: 1px solid #030303;
+    border: 1px solid #b3b3b3;
     text-decoration: none;
     border-radius: 25px;
     padding: 6px 20px;
@@ -1709,14 +1646,20 @@ footer .footer-inner .copyright a:hover{
         justify-content: center;
         margin-left: 1rem;
     }
+
+ .navbar-nav .nav-item .nav-link {
+        display: none;
+    }
+
 }
+
 
 .home-blog-listing{
     width: 98%;
     margin-left: 0.3rem;
     /* padding: 0.5rem; */
     margin-bottom: 1rem;
-    border: 1px solid #2e2e2e2d;
+    border: 1px solid #7979792d;
     border-radius: 0.5rem;
  
 }
@@ -1751,7 +1694,6 @@ footer .footer-inner .copyright a:hover{
     text-align: center;
 }
 .listing-text h5:hover{
-    /* color:goldenrod ; */
     text-decoration: underline;
 }
 .listing-text .tags span{
@@ -1761,11 +1703,10 @@ footer .footer-inner .copyright a:hover{
 .listing-text h5{
     font-size: 16px;
     overflow: hidden;
-    /* display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
-    -webkit-box-orient: vertical; */
     color: #ddd;
 }
+
+
+
 
 
