@@ -1,0 +1,211 @@
+{% extends 'blog/base.html' %}
+{% load blog_extras %}
+    {% block content %}
+
+    <div class="layout">
+    {% include 'blog/aside.html' %}
+    <div class="main-content container-fluid ">
+        <div class="row dash d-flex justify-content-center mt-4">
+
+            <!-- Right side content -->
+            <div class="col-md-10">
+                <div class="row  mt-4 d-flex justify-content-center">
+                    <div class="col-12">
+                    <!-- Counter START -->
+                    <div class="row g-4">
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-body ">
+                                <div class="d-flex align-items-center">
+                                    <!-- Icon -->
+                                    <div class="icon-xl fs-1 bg-success bg-opacity-10 rounded-3 text-success">
+                                        <i class="bi bi-people-fill"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="ms-3">
+                                        <h3>134K</h3>
+                                        <h6 class="mb-0">Pageviews</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-body">
+                                <div class="d-flex align-items-center">
+                                    <!-- Icon -->
+                                    <div class="icon-xl fs-1 bg-primary bg-opacity-10 rounded-3 text-primary">
+                                        <i class="bi bi-file-earmark-text-fill"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="ms-3">
+                                        <h3>180</h3>
+                                        <h6 class="mb-0">Posts</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-body  ">
+                                <div class="d-flex align-items-center">
+                                    <!-- Icon -->
+                                    <div class="icon-xl fs-1 bg-danger bg-opacity-10 rounded-3 text-danger">
+                                        <i class="bi bi-suit-heart-fill"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="ms-3">
+                                        <h3>2150</h3>
+                                        <h6 class="mb-0">Likes</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Counter item -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-body ">
+                                <div class="d-flex align-items-center">
+                                    <!-- Icon -->
+                                    <div class="icon-xl fs-1 bg-info bg-opacity-10 rounded-3 text-info">
+                                        <i class="bi bi-bar-chart-line-fill"></i>
+                                    </div>
+                                    <!-- Content -->
+                                    <div class="ms-3">
+                                        <h3>84K</h3>
+                                        <h6 class="mb-0">Visitors</h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- Counter END -->
+                    </div>
+                </div>
+
+                <div class="col-12 mt-4">
+                    <div class="card rounded-3">
+                        <div class="card-header bg-transparent p-3" style="font-family: 'Rubik';">
+                            <div  class="d-sm-flex justify-content-between align-items-center">
+                            <h5 class="mb-2 mb-sm-0">Your Posts<span class="badge bg-primary bg-opacity-10 text-primary">  {{blogs_count}}</span></h5>
+                            <a href="{% url 'add_posts' %}" class="btns btn-sm  mb-0 bg-opacity-10">Add New</a>
+                            </div>
+						</div>
+
+                        <div class="card-bodys">
+                            <div class="table-responsive border-0">
+                            <table class="table align-middle p-4 mb-0 table-custom table-shrink table-hover cursor-pointer" style="font-family: 'Rubik';">
+                                <thead class=" mb-4 table-dark">
+                                <tr>
+                                    <th scope="col" class="border-0 ">ID</th>
+                                    <th scope="col" class="border-0">Title</th>
+                                    <th scope="col" class="border-0">Category</th>
+                                    <th scope="col" class="border-0">Author</th>
+                                    <th scope="col" class="border-0">Status</th>
+                                    <th scope="col" class="border-0">Featured</th>
+                                    <th scope="col" class="border-0 ">Action</th>
+                                </tr>
+                                </thead>
+
+                                <tbody class="border-top-0 ">
+                                {% for all_post in posts %}
+                                <tr>
+                                    <td>   {{ forloop.counter }}  </td>
+                                    <td>
+                                        <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#">  {{ all_post.title | truncatechars:25 }} </a></h6>
+                                    </td>
+                                    <td>
+                                        <a href="#" class="badge text-bg-warning mb-2 bg-opacity-10 text-warning "><i class="fas fa-circle me-2 small fw-bold"></i>{{ all_post.category }} </a>
+                                    </td>
+                                    <td>
+                                        <h6 class="mb-0"><a href="#">{{ all_post.author }} </a></h6>
+                                    </td>
+                                    <td> 
+                                        <span class="badge bg-success bg-opacity-10 text-success mb-2"> {{ all_post.status }} </span>
+                                    </td>
+                                    <td> {{ all_post.is_featured }} </td>
+                                    <td>
+                                     <div class="d-flex gap-2">
+                                        <a href="{% url 'edit_posts' all_post.id %}" class="btn btn-primary btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa fa-edit"></i></a>
+                                        <a href="{% url 'delete_posts' all_post.id %}" class="btn btn-danger btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                                {% endfor%}
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 mt-4">
+                    <div class="card rounded-3">
+
+                        <div class="card-header bg-transparent p-3" style="font-family: 'Rubik';">
+                            <div class="d-sm-flex justify-content-between align-items-center mb-2" style="font-family: 'Rubik';">
+                            <h5 class="mb-2 mb-sm-0">Category list <span class="badge bg-primary bg-opacity-10 text-primary">  {{category_count}}</span></h5>
+                            <a href="{% url 'add_categories' %}" class="btns btn-sm  mb-0 bg-opacity-10">Add New</a>
+                            </div>
+						</div>
+
+                        <div class="card-bodys">
+                            <div class="table-responsive border-0">
+                                <table class="table align-middle p-4 mb-0 table-custom table-shrink table-hover cursor-pointer" style="font-family: 'Rubik';">
+                                    <thead class="mb-4 table-dark">
+                                    <tr>
+                                        <th scope="col" class="border-0 ">ID</th>
+                                        <th scope="col" class="border-0">Category Name</th>
+                                        <th scope="col" class="border-0">Date Created</th>
+                                        <th scope="col" class="border-0">Date Updated</th>
+                                        <th scope="col" class="border-0 ">Action</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody class="border-top-0 ">
+                                    {% for cat in categories %}
+                                    <tr>
+                                        <td>   {{ forloop.counter }}  </td>
+                                        <td>
+                                            <h6 class="course-title mt-2 mt-md-0 mb-0"><a href="#"> {{cat}} </a></h6>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="badge text-bg-warning mb-2 bg-opacity-10 text-warning "><i class="fas fa-circle me-2 small fw-bold"></i>{{cat.created_at|timesince}} ago </a>
+                                        </td>
+                                        <td>
+                                            <h6 class="mb-0"><a href="#">{{cat.updated_at|smart_timesince}}</a></h6>
+                                        </td>
+                                        <td>
+                                        <div class="d-flex gap-2">
+                                            <a href="{% url 'edit_category' cat.id %}" class="btn btn-primary btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="{% url 'delete_category' cat.id %}"  class="btn btn-danger btn-round mb-0" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete"><i class="fa-solid fa-trash"></i></a>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    {% endfor%}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+
+
+
+ 
+    {% endblock %}

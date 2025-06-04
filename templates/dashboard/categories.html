@@ -1,0 +1,43 @@
+{% extends 'blog/base.html' %}
+    {% block content %}
+
+
+    <div class="layout">
+           <div class="container-fluid ctg">
+            <div class="row dash mt-4 d-flex justify-content-center">
+            <div class="col-md-9 bordered rounded p-2">
+                    <a href="{% url 'add_categories' %}" class="btn btn-sm btn-dark text-white  mb-2">Add New</a>
+                    <table class="table table-hover  table-dark table-borderless table-striped border-primary cursor-pointer text-uppercase" style="font-family: 'Rubik';">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category Name</th>
+                                <th>Date Created</th>
+                                <th>Date Updated</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cat in categories %}
+                            <tr>
+                                <td> {{ forloop.counter}} </td>
+                                <td>{{cat}} </td>
+                                <td> {{cat.created_at}} </td>
+                                <td>  {{cat.updated_at}} </td>
+                                <td>
+                                    <a href="{% url 'edit_category' cat.id %}" class="btn btn-sm btn-success text-white"><i class="fa-solid fa-pen-to-square"></i></a>
+                                    <a href="{% url 'delete_category' cat.id %}" class="btn btn-sm btn-danger text-white"><i class="fa-solid fa-trash"></i></a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    </div>
+ 
+
+
+
+    {% endblock %}

@@ -1,0 +1,59 @@
+
+{% load static %}
+{% load blog_extras %}
+
+{% block content %}
+
+    {% for post in posts %}   
+
+            <div class="p-2 rounded bordered  mb-4 ">
+            <div class="row g-2 align-items-center flex-md-row flex-column justify-content-evenly">                         
+                <!-- Text Section -->
+                <div class="col-md-8 col-12 ">
+                 	<div class="card-header mt-3 mb-1" style="font-family: 'Rubik';">
+						<div class="d-flex align-items-center justify-content-between">
+							<div class="d-flex align-items-start">
+								<!-- Avatar -->
+								<div class="avatar ">
+									<a href="#!"> <img class="avatar-img rounded-circle" src="{% static 'imgs/person.jpg' %}" alt=""> </a>
+								</div>
+								<!-- Info -->
+								<div>
+									<h6 class="card-title mb-0"> <a href="#!"> {{ post.author.first_name }} {{ post.author.last_name }}</a></h6>
+									<p class="small mb-0   truncate">{{ post.created_at|smart_timesince }} </p>
+								</div>
+							</div>
+							<!-- Card share action START -->
+						</div>
+					</div>
+                    
+                    <h3 class=" mb-2" style="font-weight: 800;">
+                        <a href="{% url 'blogs' post.slug %}">{{ post.title }}</a>
+                    </h3>
+                
+                <p class=" mb-4 truncate">{{ post.blog_body|truncatechars:100 }}</p>
+            
+                <div class="d-flex align-items-center gap-3 small flex-wrap lorem cursor-pointer mb-2">
+                    <span class="bg-danger bg-opacity-10 rounded-3 text-danger p-2"><i class="icon-heart"></i> 489 likes</span>
+                    <span class="bg-warning bg-opacity-10 rounded-3 text-warning p-2"><i class="bi bi-eye"></i> 489 views</span>
+                    <span class="bg-primary bg-opacity-10 rounded-3 text-primary p-2"><i class="bi bi-chat"></i> 30 comments</span>
+                    <span class="bg-success bg-opacity-10 rounded-3 text-success p-2"> <i class="bi bi-bookmark"></i></span>
+                </div>
+                </div>
+            
+                <!-- Thumbnail -->
+                <div class="col-md-3 col-12">
+                    <a href="{% url 'blogs' post.slug %}">
+                        <div class="innert">
+                        <img src="{{ post.featured_image.url }}" alt="Post thumbnail" class="img-fluid rounded mt-2 mt-md-0 w-100" />
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+    {% endfor %}
+
+{% endblock %}

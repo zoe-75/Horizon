@@ -1,0 +1,52 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load blog_extras %}
+
+{% block content %}
+
+
+
+    <div class="layout">
+        <!-- Side widgets-->
+        {% include 'blog/aside.html' %}
+        <div class="dash main-content container-fluid">
+            <div class="">
+                    <div class="row gap-3 d-flex justify-content-center">
+                        <div class="title mt-3">
+                        <h1 data-aos="zoom-in" style="font-family: 'Rubik'; font-size: 40px;"> Results for :- {{keyword }} 
+                        </h1>
+                    </div>
+                    {% if blogs %}
+                    {% for i  in blogs %}
+                    <div class="col-md-6 col-lg-5 ">
+                        <div class="blog-entry bordered rounded">
+                            <a href="#" class="img-link">
+                                <div class="inners">
+                                    <img src="{{ i.featured_image.url }}" alt="Post thumbnail" class="img-fluid rounded mt-2 mt-md-0 w-100">
+                                </div>
+                            </a>
+                            <h2><a href="{% url 'blogs'  i.slug %}" style="font-size: 20px;">{{ i.title}}</a></h2>
+                            <p class="truncate" style="font-size: 18px;">{{ i.blog_body|truncatechars:70 }} </p>
+                            <div class="authors mt-3">
+                                <img src="{% static 'images/other/author-sm.jpg' %}" alt="">
+                                <p>by <span>{{ i.author }} </span> • {{ i.created_at|smart_timesince }} ago</p>
+                            </div>
+                        </div>
+                    </div>
+                        {% endfor %}
+
+                        {% else %}
+                        <p class="ml-3"> :( No Post Found !</p>
+                        {% endif %}
+                    </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+{% endblock %}

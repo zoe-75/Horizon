@@ -1,0 +1,24 @@
+{% extends 'blog/base.html' %}
+    {% block content %}
+    {% load crispy_forms_tags %}
+ 
+    <div class="container-fluid">
+        <div class="row d-flex justify-content-center">
+        {% include 'dashboard/sidebar.html' %}
+
+        <div class="col-md-9 text-white ">
+            <div class="title mt-3"> <h2 data-aos="zoom-in">Add a new category</h2> </div>
+            <div class="container">
+                <form action="{% url 'add_categories' %}" method="POST" class="position-relative sach" >
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <button type="submit" class="menu-item">Save</button>
+                    <br>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    </div>
+
+    {% endblock %}

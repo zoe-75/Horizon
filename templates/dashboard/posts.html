@@ -1,0 +1,48 @@
+{% extends 'blog/base.html' %}
+    {% block content %}
+
+
+    <div class="layout">
+    <div class="container-fluid ctg">
+            <div class="row dash mt-4 d-flex justify-content-center">
+            <div class="col-md-9 bordered rounded p-2">
+                    <a href="{% url 'add_posts' %}" class="btn btn-sm btn-dark text-white  mb-2">Add New</a>
+                    <table class="table table-hover  table-dark table-borderless table-striped border-primary cursor-pointer text-uppercase" style="font-family: 'Rubik';">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Status</th>
+                            <th>Featured</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for all_post in posts %}
+                        <tr>
+                            <td> {{ forloop.counter }} </td>
+                            <td> {{ all_post.title | truncatechars:25 }} </td>
+                            <td> {{ all_post.category }} </td>
+                            <td> {{ all_post.author }} </td>
+                            <td> {{ all_post.status }} </td>
+                            <td> {{ all_post.is_featured }} </td>
+                            <td>
+                                <a href="{% url 'edit_posts' all_post.id %}" class="btn btn-sm btn-success text-white"><i class="fa fa-edit"></i></a>
+                                <a href="{% url 'delete_posts' all_post.id %}" class="btn btn-sm btn-danger text-white"><i class="fa fa-trash"></i></a>
+                            </td>
+
+                        </tr>
+                        {% endfor%}
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    </div>
+ 
+
+
+
+    {% endblock %}
