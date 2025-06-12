@@ -1,24 +1,24 @@
 
- document.addEventListener("DOMContentLoaded", function () {
-  const items = document.querySelectorAll(".menu-item");
+//  document.addEventListener("DOMContentLoaded", function () {
+//   const items = document.querySelectorAll(".menu-item");
 
-  // Get last active item from localStorage
-  const activeText = localStorage.getItem("activeSidebarItem");
+//   // Get last active item from localStorage
+//   const activeText = localStorage.getItem("activeSidebarItem");
 
-  items.forEach(item => {
-    if (item.textContent === activeText) {
-      item.classList.add("active");
-    }
+//   items.forEach(item => {
+//     if (item.textContent === activeText) {
+//       item.classList.add("active");
+//     }
 
-    item.addEventListener("click", function () {
-      items.forEach(btn => btn.classList.remove("active"));
-      this.classList.add("active");
+//     item.addEventListener("click", function () {
+//       items.forEach(btn => btn.classList.remove("active"));
+//       this.classList.add("active");
 
-      // Save clicked item
-      localStorage.setItem("activeSidebarItem", this.textContent);
-    });
-  });
-});
+//       // Save clicked item
+//       localStorage.setItem("activeSidebarItem", this.textContent);
+//     });
+//   });
+// });
 
 
 
@@ -125,7 +125,7 @@ tabsBox.addEventListener('wheel', (e) => {
 
 $(document).ready(function () {
     let limit = 3;
-    let start = 3;
+    let start = 0;
     let action = 'inactive';
     let currentCategoryId = null;
 
@@ -219,37 +219,71 @@ $(document).ready(function () {
 
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const buttons = document.querySelectorAll('.category-btn');
-    const container = document.getElementById('post-container');
 
-    buttons.forEach(button => {
-        button.addEventListener('click', function (e) {
-            e.preventDefault();
-            const categoryId = this.getAttribute('data-id');
+document.addEventListener("DOMContentLoaded", () => {
+  const contentDiv = document.getElementById("content");
+  // const spinner = document.getElementById("loading-spinner");
 
-            // Fade out
-            container.style.transition = 'opacity 300ms ease';
-            container.style.opacity = '0.2';
+  async function loadContent(url, pushToHistory = true) {
+    try {
+      // Show spinner and fade out
+      // spinner.style.display = "block";
+      // contentDiv.classList.add("fade-out");
 
-            fetch(`/blogs/${categoryId}/`, {
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                }
-            })
-            .then(response => response.text())
-            .then(html => {
-                setTimeout(() => {
-                    container.innerHTML = html;
-                    container.style.opacity = '1';
-                }, 300);
-            })
-            .catch(err => {
-                console.error(err);
-                container.style.opacity = '1';
-            });
+      setTimeout(async () => {
+        const response = await fetch(url, {
+          headers: {
+            "X-Requested-With": "XMLHttpRequest"
+          }
         });
-    });
+
+        if (!response.ok) throw new Error("Request failed");
+
+        const html = await response.text();
+        contentDiv.innerHTML = html;
+        contentDiv.classList.remove("fade-out");
+        contentDiv.classList.add("fade-in");
+
+        setTimeout(() => {
+          contentDiv.classList.remove("fade-in");
+        }, 500); // Matches CSS transition duration
+
+        // spinner.style.display = "none";
+
+        if (pushToHistory) {
+          window.history.pushState({ url: url }, "", url);
+        }
+      }, 400); // Short delay before fetch to allow fade-out
+    } catch (err) {
+      spinner.style.display = "none";
+      contentDiv.classList.remove("fade-out");
+      console.error("AJAX Load Error:", err);
+    }
+  }
+
+  // Handle link clicks
+  document.body.addEventListener("click", (e) => {
+    const link = e.target.closest(".ajax-link");
+    if (!link) return;
+
+    e.preventDefault();
+    const url = link.getAttribute("href");
+    loadContent(url);
+  });
+
+  // Handle browser back/forward buttons
+  window.addEventListener("popstate", (e) => {
+    if (e.state && e.state.url) {
+      loadContent(e.state.url, false);
+    }
+  });
+  document.body.addEventListener("click", (e) => {
+  const homeBtn = e.target.closest("#ajax-home-button");
+  if (homeBtn) {
+    e.preventDefault();
+    loadContent("/", true); 
+  }
+});
 });
 
 

@@ -5,31 +5,30 @@
 
 {% block content %}
 
-    <div class="layout text-light ">
-
-        <!-- Side widgets-->
-        {% include 'blog/aside.html' %}
-        <div class="main-content dash container">
-            <div class=" col-md-10 bordered  rounded mt-5 ">
-                <!-- Post content-->
-                <article>
-                    <!-- Post header-->
+    <div class="layout">
+        <div class="main-content">
+            <div class="row d-flex p-4">
+                <div class="col-md-8 mt-5 p-3 container " >
+                <a href="{% url 'home' %}" class="btn btn-outline-dark mb-3">
+                ← Back to Home
+                </a>
+                <article style="padding-bottom: 100px;">
                     <header class="mb-4">
                         <!-- Post title-->
-                        <a href=""><h1 class="fw-bolder mb-1" style="font-family: 'Nunito Sans';">{{single_blog.title}}</h1></a>
+                        <a href=""><h1 class="fw-bolder mb-1">{{single_blog.title}}</h1></a>
                         <!-- Post meta content-->
-                        <div class="lorem fst-italic mb-2">Posted on {{single_blog.created_at}} ago | {{single_blog.author}}</div>
+                        <div class="truncate fst-italic mb-2">Posted on {{single_blog.created_at}} ago | {{single_blog.author}}</div>
                         <!-- Post category-->
 
                     </header>
                     <!-- Preview image figure-->
                     <!-- <figure class="mb-4"><img class="img-fluid rounded" ></figure> -->
                     <figure class="mb-4 inner"><img class="img-fluid rounded" id="fea" src="{{single_blog.featured_image.url}}" alt="img" /></figure>
-        
+
                     <!-- Post content-->
-                    <section class="mb-5">
-                        <p class="  fs-5 mb-4">{{single_blog.short_description }}</p>
-                        <p class="  fs-5 mb-4">{{single_blog.blog_body }}</p>
+                    <section class="mb-5 " >
+                        <h5 class=" mb-4 read" style="line-height:2.5rem;">{{single_blog.short_description }}</h5>
+                        <h5 class="mb-4 read" style="line-height:2.5rem;">{{single_blog.blog_body }}</h5>
 
 
 
@@ -37,7 +36,7 @@
 
                         
                         <!-- Comments -->
-                        <h4> Comments ({{comm_count}})</h4>
+                        <h4 class="truncate"> Comments ({{comm_count}})</h4>
                         <!-- {% if commments %} -->
                             {% for comment in comments %}
                                 <div class="card mb-2">
@@ -70,9 +69,10 @@
 
                     </section>
                 </article>
+                </div>
             </div>
+
         </div>
-        <!-- Side widgets-->
     </div>
 
  

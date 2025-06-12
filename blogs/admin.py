@@ -1,5 +1,5 @@
 from django.contrib import admin
-from . models import Category,  Blog, SocialLink
+from . models import Category,  Blog, SocialLink, PasswordReset
 
 
 class BlogAdmin(admin.ModelAdmin):
@@ -11,12 +11,10 @@ class BlogAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Category)
+admin.site.register(PasswordReset)
 admin.site.register(Blog, BlogAdmin )
 admin.site.register(SocialLink)
 
 
 
 
-# 609052985639-5j66rf7hhd36dfunu2roa2dlbq4jmj3t.apps.googleusercontent.com
-# secret
-# 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

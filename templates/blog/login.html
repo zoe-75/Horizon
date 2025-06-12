@@ -1,16 +1,51 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<div class="layout">
+  <div class="main-content " >
+    <div class="modal modal-sheet position-static d-block  p-1 py-md-5" tabindex="-1" role="dialog" id="modalSignin">
+      <div class="modal-dialog" style="padding-bottom: 100px;">
+        <div class="modal-content  shadow " >
+          <div class="modal-header p-5 pb-4 border-bottom-0">
+            <h1 class="fw-bold mb-0 fs-2">Log in</h1>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+          </div>
 
-<div class="catt">
-    {% load crispy_forms_tags %}
-    <h3 class="text-center">Login </h3>
-    <div class="container col-lg-5" >
-        <form action="{% url 'login' %}" method="POST" class="card bordered padding-20 rounded"  style="width: auto; margin: auto;">
-            {% csrf_token %}
-            {{ form | crispy }}
-            <button type="submit" class="btn mt-4 btn-sm btn-warning">Login</button>
-        </form>
+          <div class="modal-body p-5 pt-0">
+            {% if messages %}
+              {% for message in messages %}
+                    {% if message.tags == 'error' %}
+                        <center><h4 style="color: firebrick;"> {{message}} </h4></center>
+                        {% else %}
+                        <center><h4 style="color: dodgerblue;"> {{message}} </h4></center>
+                    {% endif %}
+              {% endfor %}
+            {% endif %}
+              <form method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger">{{ error }}</div>
+                {% endif %}
+                  <div class=" mb-3">
+                    <input type="text" class="form-control" placeholder="Username" name="username"> 
+                  </div>
+                  <div class=" mb-3">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                  </div>
+                    <div class="form-check text-start my-3">
+                      <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
+                      <label class="form-check-label" for="checkDefault">
+                        Remember me
+                      </label>
+                    </div>
+                <button class="text-white w-100 mb-2 btn2 btn-lg rounded-3 btn-primary" type="submit">Log in</button>
+                <div class="d-flex gap-2 "><h6 class="">Not a member?</h6> <span><a class="link" href="{% url 'register' %}">Sign up</a></span></div>
+                <div class="d-flex gap-2"><h6 class="">Forgot your password?</h6> <span><a class="link" href="{% url 'forgot_password' %}">Reset password</a></span></div>
+              </form>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
+  </div>
+</div>
 {% endblock %}

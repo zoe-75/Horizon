@@ -5,10 +5,14 @@
     <div class="layout">
     {% include 'blog/aside.html' %}
     <div class="main-content container-fluid ">
+
         <div class="row dash d-flex justify-content-center mt-4">
 
             <!-- Right side content -->
             <div class="col-md-10">
+                <a href="{% url 'home' %}" id="ajax-home-button" class="btn btn-outline-dark mb-3">
+              ← Back to Home
+            </a>
                 <div class="row  mt-4 d-flex justify-content-center">
                     <div class="col-12">
                     <!-- Counter START -->
