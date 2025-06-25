@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends "blog/base.html" %}
+
+{% load static %}
+{% block content %}
+<div class="container mt-5">
+  <h2>Choose a Username</h2>
+  <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary" type="submit">Continue</button>
+  </form>
+</div>
+{% endblock %}

@@ -1,43 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+{% load blog_extras %}
     <aside class="yes sidebar ">
-        <div class="mt-2 " style="padding-bottom: 80px;">
-            <div class="menu-top">
-            <p class="menu-title">Menu</p>
-            <button class="btn new-post"><i class="fa-solid fa-pen-to-square"></i> Write</button>
-            </div>
-            <nav class="sidebar-nav">
-            <ul class="">
+        <div class=" side " style="padding-bottom: 40px;">
+                <div class="menu-top d-flex gap-3 align-content-center">
+                    <a href="{% url 'home' %}" class="logo"><div class="spinner">
+                        </div>
+                    </a>
+                    <span class="gradient-text d-flex mt-2">Horizon
+                    <span class="" style="font-size: 18px;">™
+                </span></span>
+                </div>
+            <div class="">
+                <div class="nav-links  text-center">
+                    <a href="{% url 'home' %}" class="nav-item {% if request.path == '/' %}active{% endif %}" id="ajax-home-button"><i class="fas fa-home"></i>Home</a>
 
-                <a href="{% url 'dashboards' %}"><li><i class="fa-solid fa-gauge-high"></i> My Dashboard</li></a>
-                <a href=""><li><i class="icon-people"></i> Following</li></a>
-                <a href=""><li><i class="icon-fire"></i> Explore</li></a>
-                <a href=""><li><i class="icon-clock"></i> History</li></a>
-                <p class="section-title">Custom feeds</p>
-                <a href=""><li><i class="icon-plus"></i> Custom feed</li></a>
-        
-                <p class="section-title">Network</p>
-                <a href=""><li><i class="icon-link"></i> Find Squads</li></a>
-                <a href=""><li><i class="icon-plus"></i> New Squad</li></a>
-        
-                <p class="section-title">Bookmarks</p>
-                <a href=""><li><i class="icon-layers"></i> Quick saves</li></a>
-                <a href=""><li><i class="icon-book-open"></i> Read it later</li></a>
-                <a href=""><li><i class="icon-folder"></i> New folder</li></a>
-                
-                <div class="linked mt-2">
-                    <a slot="guide-links-primary" href="" >About</a>
-                    <a slot="guide-links-primary" href="" >Copyright</a>
-                    <a slot="guide-links-primary" href="">Contact us</a>
-                    <a slot="guide-links-primary" href="" >Advertise</a>
-                    <a slot="guide-links-primary" href="" >Developers</a>
-                    <a slot="guide-links-secondary" href="" >Terms</a>
-                    <a slot="guide-links-secondary" href="" >Privacy</a>
-                    <a slot="guide-links-secondary" href="" >Policy &amp;Safety</a>
-                    <div id="copyright" slot="copyright" >
-                        <div dir="ltr" style="display:inline">&copy;2025 Core.Technology LLC</div>
+                    <a href="" class="nav-item {% if '/explore' in request.path  %}active{% endif %}"><i class="fas fa-search"></i>Explore</a>
+
+                    <a href=""  class="nav-item {% if '/notification' in  request.path%}active{% endif %}"><i class="fas fa-bell"></i>Notifications <span class="notification-dot">14</span></a>
+
+                   <a href="{% url 'dashboards' %}" class="nav-item {% if '/dashboards' in request.path %}active{% endif %}"><i class="fa-solid fa-gauge-high"></i>Dashboard</a>
+
+                    <a href=" " class="nav-item {% if '/Communities' in  request.path %}active{% endif %}"><i class="fas fa-users"></i> Communities</a>
+
+                    <a href=""  class="nav-item {% if '/profile'  in request.path %}active{% endif %}"><i class="fas fa-user"></i>Profile</a>
+                    
+                     <div class="nav-item" id="moreBtn"><i class="fas fa-ellipsis-h"></i> <span>More</span>
+                        <div class="dropup" id="moreMenu">
+                            <div class="dropup-item"> <i class="bi bi-settings"></i> Settings</div>
+                            <div class="dropup-item" id="theme-switch"> 
+                                <div class="dark"> Dark <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg></div>
+                                <div class="light"> Light <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg></div>
+                            </div>
+                            <div class="dropup-item"> <i class="bi bi-help" ></i> Help Center</div>
+                        </div>
                     </div>
+
                 </div>
 
-            </ul>
-            </nav>
-        </div>      
+                <button class="post-btn mb-2"><i class="bi bi-pencil-square"></i> Write</button>
+
+                <div class="profile mt-2" id="profileBtn">
+                <img src="{% static 'images/person.jpg' %}" alt="Profile">
+                <div class="profile-details">
+                    <span>@EChijindum</span>
+                </div>
+                <div class="dropup" id="profileMenu">
+                    <div class="dropup-item mb-2"><i class="fas fa-user"></i> View Profile</div>
+                    <a href="{% url 'logout' %}" class="dropup-item mb-2">
+                        <i class="icon-logout fw-bolder ps-2"></i> Logout 
+                    </a>
+                </div>
+                </div>
+            </div>
+
+
+
+        </div>    
     </aside>

@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/fav.png' %}">
-    <title>Horizon</title>
+    <link rel="icon" type="image/png"  href="{% static 'images/fav.png' %}">
+    <title>Horizon™</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css ">
@@ -22,8 +22,9 @@
     <link rel="stylesheet" href="{% static 'css/slick.css' %}?v=3">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.5.5/css/simple-line-icons.min.css">
-    <!-- <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"> -->
-    <link rel="stylesheet" href="{% static 'cs/index.css' %}?v=6">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'cs/index.css' %}?v=3">
+    <link rel="stylesheet" href="{% static 'cs/fonts.css' %}?v=2">
 
 <script>
   if (localStorage.getItem('darkmode') === 'active') {
@@ -34,14 +35,14 @@
 </script>
 </head>
 <!-- <div id="loading-spinner">
-  <div class="spinner"></div>
+  <div class="spinner"></div>H
 </div> -->
 
 
 <body>
     <div class="site-wrapper">
         <div class="main-overlay"></div>
-        <header class="header-default navbar navbar-expand-lg  ">
+      <!-- <header class="header-default navbar navbar-expand-lg ">
             <nav class="container-fluid">
                 <div class="d-flex col-md-3 col-6 align-items-center ">
                     <div class="home">
@@ -52,7 +53,7 @@
 
                   {% else %}
                     <div class="col-md-9">                    
-                    <form action="{% url 'search' %}" method="GET" class=" position-relative ">
+                    <form action="{% url 'search' %}" method="GET" class=" position-relative" id="search-form">
                     <input value="{{keyword}}" name="keyword" class="rounded-5 form-control p-2" type="search"
                         placeholder="Search" aria-label="Search" required>
                     <button
@@ -108,7 +109,7 @@
                         {% if not user.is_authenticated %}
 
                         {% else %}
-                                                <button id="theme-switch" class="mt-1">
+                            <button id="theme-switch" class="mt-1">
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
 
                             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
@@ -118,12 +119,10 @@
     
                     </div>
                 </div>
-                <!-- <a class="burger-menu icon-button">
-                        <i class="bi bi-text-left rtl-flip fs-5" data-bs-target="#offcanvasMenu"> </i>
-                    </a> -->
+
             </nav>
 
-        </header>
+        </header>  -->
         <div id="content"></div>
         <!-- section starts  -->
         {% block content %}
@@ -137,13 +136,15 @@
 
 
     <!-- javascripts  -->
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="{% static 'jsx/jquery.min.js' %}?v=1"></script>
     <script src="{% static 'jsx/popper.min.js' %}?v=1"></script>
     <script src="{% static 'jsx/bootstrap.min.js' %}?v=1"></script>
     <script src="{% static 'jsx/slick.min.js' %}?v=1"></script>
     <script src="{% static 'jsx/jquery.sticky-sidebar.min.js' %}?v=1"></script>
-    <script src="{% static 'jsx/main.js' %}?v=4"></script>
+    <script src="{% static 'jsx/main.js' %}?v=1"></script>
 </body>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
@@ -176,5 +177,33 @@
     }
   });
 </script>
+<script>
+  const togglePassword = document.querySelector("#togglePassword");
+  const password = document.querySelector("#password");
 
+  togglePassword.addEventListener("click", function () {
+    const type = password.getAttribute("type") === "password" ? "text" : "password";
+    password.setAttribute("type", type);
+    this.classList.toggle("fa-eye-slash");
+  });
+</script>
+<script>
+  const togglePasswords = document.querySelector("#togglePasswords");
+  const passwords = document.querySelector("#passwords");
+
+  togglePasswords.addEventListener("click", function () {
+    const type = passwords.getAttribute("type") === "password" ? "text" : "password";
+    passwords.setAttribute("type", type);
+    this.classList.toggle("fa-eye-slash");
+  });
+
+  document.addEventListener("submit", (e) => {
+  if (e.target.id === "search-form") {
+    e.preventDefault();
+    const keyword = new FormData(e.target).get("keyword");
+    const searchUrl = `/blogs/search/?keyword=${encodeURIComponent(keyword)}`;
+    loadContent(searchUrl);
+  }
+});
+</script>
 </html>

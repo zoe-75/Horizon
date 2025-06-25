@@ -19,6 +19,9 @@ from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
 from django.conf import settings
+from django.contrib.auth.decorators import user_passes_test
+
+admin.site.login = user_passes_test(lambda u: u.is_superuser)(admin.site.login)
 
 
 from .import views

@@ -22,7 +22,25 @@
 
 
 
+      // Toggle More
+    document.getElementById('moreBtn').addEventListener('click', function (e) {
+      e.stopPropagation();
+      document.getElementById('moreMenu').classList.toggle('show');
+      document.getElementById('profileMenu').classList.remove('show');
+    });
 
+    // Toggle Profile
+    document.getElementById('profileBtn').addEventListener('click', function (e) {
+      e.stopPropagation();
+      document.getElementById('profileMenu').classList.toggle('show');
+      document.getElementById('moreMenu').classList.remove('show');
+    });
+
+    // Hide dropups when clicking outside
+    document.addEventListener('click', function () {
+      document.getElementById('moreMenu').classList.remove('show');
+      document.getElementById('profileMenu').classList.remove('show');
+    });
 
 
 
@@ -129,106 +147,115 @@ $(document).ready(function () {
     let action = 'inactive';
     let currentCategoryId = null;
 
-    function load_post_data(limit, start, categoryId = null) {
-        let url = categoryId ? `/blogs/${categoryId}/` : '/';
+    function load_post_data(startVal, categoryId = null, append = true) {
+        let url = categoryId
+            ? `/blogs/${categoryId}/?limit=${limit}&start=${startVal}`
+            : `/?limit=${limit}&start=${startVal}`;
+
+        console.log("▶ loading", url);
 
         $.ajax({
             url: url,
             method: 'GET',
-            data: {
-                limit: limit,
-                start: start
-            },
             cache: false,
             headers: {
                 'X-Requested-With': 'XMLHttpRequest'
             },
             success: function (response) {
                 if ($.trim(response) === "") {
-                    $('#more-data').html("<button type='button' class='btn btn-info bg-danger bg-opacity-10  text-danger '> :( no post found</button>");
-                    action = 'done'; 
+                    $('#more-data').html(`<button type='button' class='btn2 fw-bold text-white'>:( No more posts</button>`);
+                    action = 'done';
                 } else {
-                    $("#post-container").append(response);
-                    $('#more-data').html(`
-                        <div class="content-spacer d-flex justify-content-center align-items-center">
-                            <div class="spinner-border text-info" role="status"></div>
-                        </div>
-                    `);
+                    if (append) {
+                        $('#post-container').append(response);
+                    } else {
+                        $('#post-container').html(response);
+                    }
+
+                    $('#post-container').css('opacity', 1);
+                    $('#more-data').html('');
                     action = 'inactive';
                 }
             },
             error: function () {
-                $('#more-data').html(
-                    "<button type='button' class='btn btn-danger'>Error loading posts</button>"
-                );
+                $('#more-data').html(`<button type='button' class='btn2 btn-danger'>:( Error loading posts</button>`);
                 action = 'inactive';
             }
         });
     }
 
-    // Initial load
-    if (action === 'inactive') {
+    // 🔁 Initial load
+    load_post_data(start);
+
+    // 🔁 Infinite scroll
+$('.main-content').on('scroll', function () {
+    if (
+        $(this).scrollTop() + $(this).innerHeight() >= this.scrollHeight - 100 &&
+        action === 'inactive'
+    ) {
         action = 'active';
-        load_post_data(limit, 0);
+        start += limit;
+
+        setTimeout(() => {
+            load_post_data(start, currentCategoryId, true);
+        }, 1000); // 1000ms delay
     }
-
-    // Infinite scroll trigger
-    $('.main-content').on('scroll', function () {
-        if (
-            $(this).scrollTop() + $(this).innerHeight() >= this.scrollHeight - 100 &&
-            action === 'inactive'
-        ) {
-            action = 'active';
-            start += limit;
-            setTimeout(function () {
-                load_post_data(limit, start, currentCategoryId);
-            }, 600);
-        }
-    });
-
-    // Category filter click handler
-    $(document).on('click', '.category-btn', function (e) {
+});
+    // ✅ Category click handler
+    $(document).on('click', '.category-link', function (e) {
         e.preventDefault();
-        let categoryId = $(this).data('id');
-        currentCategoryId = categoryId;
-        start = 0;
-        action = 'inactive'; // Reset action to allow loading on new category
-        $('#post-container').css('opacity', 0.2);
 
-        $.ajax({
-            url: `/blogs/${categoryId}/`,
-            method: 'GET',
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            success: function (response) {
-                setTimeout(() => {
-                    $('#post-container').html(response).css('opacity', 1);
-                    action = 'inactive';
-                    start = limit; // reset start for infinite scroll after filter
-                    $('#more-data').html(''); // clear "no posts" or spinner message
-                }, 500);
-            },
-            error: function () {
-                $('#post-container').css('opacity', 1);
-            }
+        $('.category-link').removeClass('active');
+        $(this).addClass('active');
+
+        let categoryId = $(this).data('id');
+        currentCategoryId = categoryId === 'all' ? null : categoryId;
+
+        // Reset everything
+        start = 0;
+        action = 'active';
+
+        $('#post-container').fadeOut(200, function () {
+            $(this).empty();
+            $('#more-data').empty();
+
+            load_post_data(start, currentCategoryId, false); // clear and reload
+            $('#post-container').fadeIn(300);
+
+            // Wait and check scroll fill
+            setTimeout(() => {
+                const el = $('.main-content')[0];
+                if (el.scrollHeight <= el.clientHeight + 100 && action === 'inactive') {
+                    action = 'active';
+                    start += limit;
+                    load_post_data(start, currentCategoryId, true);
+                }
+            }, 500);
         });
     });
 });
 
 
 
+// const links = document.querySelectorAll('.nav-item');
+// links.forEach(link => {
+//   link.addEventListener('click', function (e) {
+//     e.preventDefault(); // prevent jumping to `#`
+//     links.forEach(l => l.classList.remove('active'));
+//     this.classList.add('active');
+//   });
+// });
 
 
 document.addEventListener("DOMContentLoaded", () => {
   const contentDiv = document.getElementById("content");
-  // const spinner = document.getElementById("loading-spinner");
+  const spinner = document.getElementById("loading-spinner");
 
   async function loadContent(url, pushToHistory = true) {
     try {
-      // Show spinner and fade out
-      // spinner.style.display = "block";
-      // contentDiv.classList.add("fade-out");
+  
+    //   spinner.style.display = "block";
+    //   contentDiv.classList.add("fade-out");
 
       setTimeout(async () => {
         const response = await fetch(url, {
@@ -246,14 +273,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         setTimeout(() => {
           contentDiv.classList.remove("fade-in");
-        }, 500); // Matches CSS transition duration
+        }, 500); 
 
         // spinner.style.display = "none";
 
         if (pushToHistory) {
           window.history.pushState({ url: url }, "", url);
         }
-      }, 400); // Short delay before fetch to allow fade-out
+      }, 400); 
     } catch (err) {
       spinner.style.display = "none";
       contentDiv.classList.remove("fade-out");
@@ -261,7 +288,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Handle link clicks
+ 
   document.body.addEventListener("click", (e) => {
     const link = e.target.closest(".ajax-link");
     if (!link) return;
@@ -271,7 +298,7 @@ document.addEventListener("DOMContentLoaded", () => {
     loadContent(url);
   });
 
-  // Handle browser back/forward buttons
+
   window.addEventListener("popstate", (e) => {
     if (e.state && e.state.url) {
       loadContent(e.state.url, false);
@@ -285,7 +312,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 });
-
-
-
-

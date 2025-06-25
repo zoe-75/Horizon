@@ -71,7 +71,7 @@ class SocialLink(models.Model):
 
 
 class PasswordReset(models.Model):
-    user = models.ForeignKey(User, on_delete=models. CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     reset_id = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
 

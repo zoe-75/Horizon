@@ -1,0 +1,38 @@
+@font-face {
+  font-family: 'Qurova';
+  src: url('/static/fonts/QurovaDEMO-Bold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Qurova';
+  src: url('/static/fonts/QurovaDEMO-Light.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Qurova';
+  src: url('/static/fonts/QurovaDEMO-Medium.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Qurova';
+  src: url('/static/fonts/QurovaDEMO-Rgular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Qurova';
+  src: url('/static/fonts/QurovaDEMO-SemiBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Sohne';
+  src: url('/static/fonts/TestSohne-Halbfett-BF663d89cd2d67b.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+

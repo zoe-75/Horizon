@@ -2,9 +2,20 @@
 {% load blog_extras %}
               
     <div class="yes sticky-sidebar">
-        <div class="mt-2 sticky-inner" style="padding-bottom: 100px;">
+        <div class=" sticky-top" style="padding-bottom: 50px;">
+                <div class="sticky-inner  sticky-top">
+                    <div class="col-md-15">                    
+                    <form action="{% url 'search' %}" method="GET" class=" position-relative" id="search-form">
+                    <input value="{{keyword}}" name="keyword" class="rounded-5 form-control p-2" type="search"
+                        placeholder="Search" aria-label="Search" required>
+                    <button
+                        class="btn bg-transparent border-0 px-2 py-0 position-absolute top-50 end-0 translate-middle-y"
+                        type="submit"><i class="fas fa-search fs-6 lorem"></i></button>
+                    </form>
+                    </div>
+                </div>
             <div class="picks list-group-flush ">
-                <div class="title px-3 pt-2"><h2 data-aos="zoom-in">Staff Picks</h2> </div>
+                <h6 class="lorem px-3 mt-2 fw-bold mb-3">Staff Picks</h6>
                 <a href="#" class="list-group-item list-group-item-action py-3 lh-sm">
                     <div class="d-flex align-items-center justify-content-between">
                     <strong class="mb-1">List group item heading</strong>
@@ -35,24 +46,24 @@
                 </a>
             </div>
 
-            <nav class="sidebar-nav">
-            <ul>
+            <div class="">
+
                 <div class="widget ">
                     <div class="widget-header text-start">
-                    <div class="title"> <h2 data-aos="zoom-in">Recommended Topics</h2> </div>
+                    <h6 class="lorem fw-bold mb-3">Recommended Topics</h6>
                     </div>
                     <div class="widget-content">
-                        <a href="#" class="tag">#Trending</a>
-                        <a href="#" class="tag">#Cooking</a>
-                        <a href="#" class="tag">#Cooking</a>
-                        <a href="#" class="tag">#Featured</a>
-                        <a href="#" class="tag">#Beauty</a>
-                        <a href="#" class="tag">#Finance</a>
-                        <a href="#" class="tag">#Finance</a>
-                        <a href="#" class="tag">#Celebrities</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Trending</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Cooking</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Cooking</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Featured</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Beauty</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Finance</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Finance</a>
+                        <a href="#" class="tag"><i class="bi bi-plus-lg fw-bolder"></i>Celebrities</a>
                     </div>
                 </div>
-                <div class="widget p-3 " style="width: 100%; max-width: 400px;">
+                <div class="widget ">
                 <h6 class="fw-bold mb-3 lorem">Who to follow</h6>
 
                 <!-- Item 1 -->
@@ -94,7 +105,20 @@
                 <!-- Footer -->
                 <a href="#" class="text-primary text-decoration-none">See more suggestions</a>
                 </div>
-            </ul>
-            </nav>
+                <div class="linked  p-4">
+                    <a slot="guide-links-primary" href="" >About</a>
+                    <a slot="guide-links-primary" href="" >Copyright</a>
+                    <a slot="guide-links-primary" href="">Contact us</a>
+                    <a slot="guide-links-primary" href="" >Advertise</a>
+                    <a slot="guide-links-primary" href="" >Developers</a>
+                    <a slot="guide-links-secondary" href="" >Terms</a>
+                    <a slot="guide-links-secondary" href="" >Privacy</a>
+                    <a slot="guide-links-secondary" href="" >Policy &amp;Safety</a>
+                    <div id="copyright" slot="copyright" >
+                        <div dir="ltr" style="display:inline">&copy;2025 Core.Technology LLC</div>
+                    </div>
+                </div>
+
+            </div>
         </div>      
     </div>

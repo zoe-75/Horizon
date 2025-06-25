@@ -8,30 +8,31 @@
                 <div class="layout">
                     {% include 'blog/aside.html' %}
                     <main class="main-content container" >
-                        <div class="row d-flex justify-content-between">
-                            <div class="col-md-8 drsf" > 
-                                    <div class="sub-nav sticky-top container">
+                        <div class="row d-flex justify-content-between">                            
+                            <div class="col-md-8"> 
+                                    <div class="sub-nav sticky-top ">
                                         <div class="wrapper">
-                                            <div class="icon"><i id="left" class="icon-arrow-left"></i>
+                                            <div class="icon"><i id="left" class="bi bi-arrow-left"></i>
                                             </div>
-                                            <ul class="tabs-box" id="category-buttons">
-                                                <a href="" class="custom-hover bg-opacity-10  text-decoration-none d-inline-block fw-bolder"><li class="tab"><i class="bi bi-plus fw-bolder"></i></li></a>
+                                            <div class="tabs-box ">
+                                                <a href="" class="custom-hover align-content-center px-3 py-2 rounded-3"><i class="bi bi-plus-lg fw-bolder"></i> </a>
 
-                                                <a href="{% url 'home' %}" class="custom-hover  text-decoration-none d-inline-block"><li class="tab">All </li></a>
+                                                <a href="{% url 'home' %}" class="category-link custom-hover active" data-id="all">All</a>
 
                                                 {% for cat in categories %}
-                                                <a href="#" data-id="{{ cat.id }}" class="category-btn custom-hover text-decoration-none d-inline-block bg-opacity-10"><li class="tab ">{{ cat.category_name }}</li></a>
+                                                <a href="#" data-id="{{ cat.id }}" class=" category-link">{{ cat.category_name }}</a>
                                                 {% endfor %}
-                                            </ul>
+                                            </div>
 
-                                            <div class="icon"><i id="right" class="icon-arrow-right"></i>
+                                            <div class="icon"><i id="right" class="bi bi-arrow-right"></i>
                                             </div>
                                         </div>
                                     </div>  
-                                    <div id="post-container" class="p-2 mt-4">
+
+                                    <div id="post-container" class="mt-5 p-2">
                                         {% include 'blog/partials/posts.html' %}
                                     </div>
-                                    <div id="more-data" class="text-center my-3"></div>
+                                    <div id="more-data" class="text-center mt-2 mb-4"></div>
                             </div>
                             <!-- Right: Sticky Sidebar -->
                                 {% include 'blog/aside2.html' %}
