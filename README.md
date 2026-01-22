@@ -1,8 +1,8 @@
 # Zoe 👋  
 **Full-Stack Software Developer | Django • REST APIs • Web Platforms**
 
-[![GitHub](https://img.shields.io/badge/GitHub-Zoe-black?style=for-the-badge&logo=github)]
-[![Email](https://img.shields.io/badge/Email-Contact_Me-red?style=for-the-badge&logo=gmail)]
+![GitHub](https://img.shields.io/badge/GitHub-Zoe-black?style=for-the-badge&logo=github)
+![Email](https://img.shields.io/badge/Email-Contact_Me-red?style=for-the-badge&logo=gmail)
 
 ---
 
