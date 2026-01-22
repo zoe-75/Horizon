@@ -31,10 +31,12 @@ I focus on:
 ![SQLite](https://img.shields.io/badge/SQLite-000?style=for-the-badge)
 
 ### Frontend
-![HTML](https://img.shields.io/badge/HTML5-000?style=for-the-badge&logo=html5)
-![CSS](https://img.shields.io/badge/CSS3-000?style=for-the-badge&logo=css3)
-![Bootstrap](https://img.shields.io/badge/Bootstrap-000?style=for-the-badge&logo=bootstrap)
-![JavaScript](https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript)
+[![HTML](https://img.shields.io/badge/HTML5-000?style=for-the-badge&logo=html5)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS](https://img.shields.io/badge/CSS3-000?style=for-the-badge&logo=css3)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-000?style=for-the-badge&logo=bootstrap)](https://getbootstrap.com/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-000?style=for-the-badge&logo=javascript)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![React](https://img.shields.io/badge/React-000?style=for-the-badge&logo=react)](https://react.dev/)
+
 
 ### Tools & Workflow
 ![Git](https://img.shields.io/badge/Git-000?style=for-the-badge&logo=git)
@@ -69,9 +71,9 @@ I focus on:
 
 ## GitHub Stats
 
-![Zoe's GitHub stats](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=radical)
+![Zoe's GitHub stats](https://github-readme-stats.vercel.app/api?username=zoe-75&show_icons=true&theme=radical)
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&layout=compact&theme=radical)
+![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=zoe-75&layout=compact&theme=radical)
 
 ---
 
